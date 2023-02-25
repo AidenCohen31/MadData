@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SecondFragment">
 
+<<<<<<< HEAD
     <TextView
         android:id="@+id/textview_second"
         android:layout_width="wrap_content"
@@ -24,4 +25,47 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_second" />
+=======
+    <ImageView
+        android:id="@+id/main_image"
+        android:layout_width="350dp"
+        android:layout_height="550dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_image">
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="59dp"
+            android:layout_weight="1"
+            android:text="Latex?"
+            android:textSize="30dp"
+            android:onClick="onCheckboxClicked"/>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FF0000"
+            android:text="Submit"
+            android:typeface="sans"/>
+
+    </LinearLayout>
+
+
+>>>>>>> 2c81c6611e6c2058cae2d8c84c122fe5778a8a1e
 </androidx.constraintlayout.widget.ConstraintLayout>
