@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.graphics.Color;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.widget.SwitchCompat;
@@ -39,7 +41,7 @@ public class SecondFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
     //CheckBox checkBox = (CheckBox) getView().findViewById(R.id.checkBox);
-
+        ((ImageView) getView().findViewById(R.id.main_image)).setImageBitmap(getArguments().getParcelable("photo"));
 
         SwitchCompat checkBox1 = (SwitchCompat) view.findViewById(R.id.checkBox1);
 
@@ -83,6 +85,8 @@ public class SecondFragment extends Fragment {
 
 
     }
+
+
 
     @Override
     public void onDestroyView() {
