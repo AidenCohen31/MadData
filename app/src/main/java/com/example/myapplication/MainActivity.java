@@ -17,11 +17,9 @@ import com.example.myapplication.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
-<<<<<<< HEAD
-=======
+
 import android.widget.CheckBox;
 import android.widget.Toast;
->>>>>>> 2c81c6611e6c2058cae2d8c84c122fe5778a8a1e
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
     }
 
     @Override
@@ -78,8 +77,7 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-<<<<<<< HEAD
-=======
+
 
 //    public void onCheckboxClicked(View view) {
 //        // Is the view now checked?
@@ -92,5 +90,4 @@ public class MainActivity extends AppCompatActivity {
 //            Toast.makeText(getApplicationContext(), "Updates disabled", Toast.LENGTH_SHORT).show();
 //        }
 //    }
->>>>>>> 2c81c6611e6c2058cae2d8c84c122fe5778a8a1e
 }
