@@ -23,6 +23,7 @@ import com.example.myapplication.databinding.ActivityMainBinding;
 import androidx.activity.result.ActivityResultLauncher;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         imageView = findViewById(R.id.main_image);
         setSupportActionBar(binding.toolbar);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
