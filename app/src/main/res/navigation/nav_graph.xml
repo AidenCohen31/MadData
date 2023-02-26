@@ -32,4 +32,15 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/ThirdFragment"
+        android:name="com.example.myapplication.ThirdFragment"
+        android:label="ThirdFragment"
+        tools:layout="@layout/fragment_third"
+        android:background="#FFFFFF">
+
+        <action
+            android:id="@+id/action_ThirdFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
 </navigation>

@@ -56,19 +56,32 @@
         app:layout_constraintTop_toTopOf="@+id/legitechMenu"
         app:layout_constraintVertical_bias="0.47" />
 
-    <View
+    <RelativeLayout
+        android:orientation="vertical"
         android:id="@+id/filePreview"
         android:layout_width="434dp"
         android:layout_height="530dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:background="#202323"
-
         app:layout_constraintBottom_toBottomOf="@+id/cameraMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/legitechMenu" />
+        app:layout_constraintTop_toTopOf="@+id/legitechMenu" >
+
+    </RelativeLayout>
+<!--    <View-->
+<!--        android:id="@+id/filePreview"-->
+<!--        android:layout_width="434dp"-->
+<!--        android:layout_height="530dp"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:background="#202323"-->
+
+<!--        app:layout_constraintBottom_toBottomOf="@+id/cameraMenu"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/legitechMenu" />-->
 
     <View
         android:id="@+id/cameraMenu"

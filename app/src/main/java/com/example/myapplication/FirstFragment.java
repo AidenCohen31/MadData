@@ -4,25 +4,41 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentContainerView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.myapplication.databinding.FragmentFirstBinding;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import javax.xml.transform.Result;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class FirstFragment extends Fragment {
     private static final int REQUEST_CODE = 22;
+
+    private OkHttpClient client = new OkHttpClient();
 
 
     private FragmentFirstBinding binding;
@@ -35,6 +51,9 @@ public class FirstFragment extends Fragment {
     ) {
 
         binding = FragmentFirstBinding.inflate(inflater, container, false);
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+
+        StrictMode.setThreadPolicy(policy);
 
         return binding.getRoot();
 
@@ -42,7 +61,36 @@ public class FirstFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        FragmentManager fragmentManager = getParentFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        RelativeLayout fp = view.findViewById(R.id.filePreview);
 
+
+        String url = "http://maddata-backend.herokuapp.com/files";
+
+        String responseStr = "";
+        Request request = new Request.Builder()
+                .url(url)
+                .build();
+        try {
+            Response response = client.newCall(request).execute();
+            responseStr = response.body().string();
+            JSONObject jsonObj = new JSONObject(responseStr);
+            JSONArray arr = jsonObj.getJSONArray("files");
+            for(int i = 0; i < arr.length(); i++){
+                System.out.println(arr);
+                JSONObject c = arr.getJSONObject(i);
+                String name = c.getString("name");
+                String data = c.getString("data");
+                fp.addView(new FragmentContainerView(getContext()));
+                fragmentTransaction.add(fp.getId(), new ThirdFragment(), "fragment" + i);
+            }
+            fragmentTransaction.commit();
+
+        } catch(Exception e){
+            System.out.println(e.getStackTrace());
+            throw new RuntimeException(e);
+        }
         binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

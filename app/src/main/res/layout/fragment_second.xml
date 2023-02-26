@@ -90,10 +90,10 @@
 
         </RelativeLayout>
 
-        <Tex
+
 
         <Button
-            android:id="@+id/button1"
+android:id="@+id/button1"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_row="0"
