@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.graphics.Color;
+import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -39,15 +41,24 @@ public class SecondFragment extends Fragment {
     //CheckBox checkBox = (CheckBox) getView().findViewById(R.id.checkBox);
 
 
-        CheckBox checkBox1 = (CheckBox) view.findViewById(R.id.checkBox1);
+        SwitchCompat checkBox1 = (SwitchCompat) view.findViewById(R.id.checkBox1);
 
         binding.checkBox1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View buttonView) {
-                boolean isChecked = ((CheckBox) buttonView).isChecked();
+                boolean isChecked = ((SwitchCompat) buttonView).isChecked();
+                TextView tvSwitchYes = (TextView) view.findViewById(R.id.tvSwitchYes);
+                TextView tvSwitchNo = (TextView) view.findViewById(R.id.tvSwitchNo);
+
+
                 if (isChecked) {
                     // Run extra code when checkbox is checked
+                    tvSwitchYes.setTextColor(Color.parseColor("#4282DC"));
+                    tvSwitchNo.setTextColor(Color.rgb(255,255,255));
+
                     Toast.makeText(getContext(), "Updates enabled", Toast.LENGTH_SHORT).show();
                 } else {
+                    tvSwitchYes.setTextColor(Color.rgb(255,255,255));
+                    tvSwitchNo.setTextColor(Color.parseColor("#4282DC"));
                     // Run code when checkbox is unchecked
                     Toast.makeText(getContext(), "Updates disabled", Toast.LENGTH_SHORT).show();
                 }
