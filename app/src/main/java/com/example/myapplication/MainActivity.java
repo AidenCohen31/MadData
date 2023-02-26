@@ -26,6 +26,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import android.widget.CheckBox;
+import android.widget.Toast;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
@@ -56,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(cameraIntent,REQUEST_CODE);
             }
         });
+
     }
 
     @Override
@@ -100,4 +104,17 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
+//    public void onCheckboxClicked(View view) {
+//        // Is the view now checked?
+//        boolean checked = ((CheckBox) view).isChecked();
+//        if (checked) {
+//            // Run extra code when checkbox is checked
+//            Toast.makeText(getApplicationContext(), "Updates enabled", Toast.LENGTH_SHORT).show();
+//        } else {
+//            // Run code when checkbox is unchecked
+//            Toast.makeText(getApplicationContext(), "Updates disabled", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 }
