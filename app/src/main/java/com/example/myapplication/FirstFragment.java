@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -55,15 +56,9 @@ public class FirstFragment extends Fragment {
 
         StrictMode.setThreadPolicy(policy);
 
-        return binding.getRoot();
-
-    }
-
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
         FragmentManager fragmentManager = getParentFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        RelativeLayout fp = view.findViewById(R.id.filePreview);
+        GridLayout fp = binding.filePreview;
 
 
         String url = "http://maddata-backend.herokuapp.com/files";
@@ -82,8 +77,15 @@ public class FirstFragment extends Fragment {
                 JSONObject c = arr.getJSONObject(i);
                 String name = c.getString("name");
                 String data = c.getString("data");
-                fp.addView(new FragmentContainerView(getContext()));
-                fragmentTransaction.add(fp.getId(), new ThirdFragment(), "fragment" + i);
+                FragmentContainerView fcv = new FragmentContainerView(getActivity());
+                fcv.setId(i + 121);
+                fp.addView(fcv);
+                ThirdFragment tf = new ThirdFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("name" , name);
+                bundle.putString("data" , data.substring(2,data.length() - 1));
+                tf.setArguments(bundle);
+                fragmentTransaction.add(fp.getChildAt(i).getId(), tf, "fragment" + i);
             }
             fragmentTransaction.commit();
 
@@ -91,6 +93,14 @@ public class FirstFragment extends Fragment {
             System.out.println(e.getStackTrace());
             throw new RuntimeException(e);
         }
+
+        return binding.getRoot();
+
+    }
+
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -14,6 +14,10 @@
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_FinalFragment"
+            app:destination="@id/FinalFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -38,9 +42,40 @@
         android:label="ThirdFragment"
         tools:layout="@layout/fragment_third"
         android:background="#FFFFFF">
+        <argument
+            android:name="myArg"
+            app:argType="string"
+            android:defaultValue="@null"
 
+            />
+        <argument
+            android:name="myArg2"
+            app:argType="string"
+            android:defaultValue="@null"
+
+            />
         <action
             android:id="@+id/action_ThirdFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            android:id="@+id/action_ThirdFragment_to_FinalFragment"
+            app:destination="@id/FinalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/FinalFragment"
+        android:name="com.example.myapplication.FinalFragment"
+        android:label="FinalFragment"
+        tools:layout="@layout/fragment_final"
+        >
+        <argument
+            android:name="myArg"
+            app:argType="string"
+            android:defaultValue="@null"
+
+            />
+        <action
+            android:id="@+id/action_FinalFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment"
+            />
     </fragment>
 </navigation>

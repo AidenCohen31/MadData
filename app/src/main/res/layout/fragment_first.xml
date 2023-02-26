@@ -56,19 +56,24 @@
         app:layout_constraintTop_toTopOf="@+id/legitechMenu"
         app:layout_constraintVertical_bias="0.47" />
 
-    <RelativeLayout
-        android:orientation="vertical"
+    <GridLayout
         android:id="@+id/filePreview"
-        android:layout_width="434dp"
+        android:padding="0dp"
+
+        android:layout_width="410dp"
         android:layout_height="530dp"
-        android:background="#202323"
+        android:background="#FFFFFF"
+        android:columnCount="1"
+        android:columnOrderPreserved="true"
+        android:orientation="vertical"
+        android:rowCount="6"
         app:layout_constraintBottom_toBottomOf="@+id/cameraMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/legitechMenu" >
+        app:layout_constraintTop_toTopOf="@+id/legitechMenu">
 
-    </RelativeLayout>
+    </GridLayout>
 <!--    <View-->
 <!--        android:id="@+id/filePreview"-->
 <!--        android:layout_width="434dp"-->

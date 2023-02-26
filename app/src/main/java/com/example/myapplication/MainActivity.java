@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.provider.MediaStore;
 import android.view.View;
 
+import androidx.fragment.app.FragmentContainerView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavHostController;
 import androidx.navigation.Navigation;
@@ -24,18 +27,26 @@ import androidx.activity.result.ActivityResultLauncher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 
 import android.widget.CheckBox;
 import android.widget.Toast;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+    private OkHttpClient client = new OkHttpClient();
 
     private static final int REQUEST_CODE = 22;
 
@@ -98,6 +109,11 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
+
+
+
 
 
 //    public void onCheckboxClicked(View view) {
