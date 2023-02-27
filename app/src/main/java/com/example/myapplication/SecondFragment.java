@@ -124,12 +124,12 @@ public class SecondFragment extends Fragment {
                     tvSwitchYes.setTextColor(Color.parseColor("#4282DC"));
                     tvSwitchNo.setTextColor(Color.rgb(255,255,255));
 
-                    Toast.makeText(getContext(), "Updates enabled", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "LaTeX enabled", Toast.LENGTH_SHORT).show();
                 } else {
                     tvSwitchYes.setTextColor(Color.rgb(255,255,255));
                     tvSwitchNo.setTextColor(Color.parseColor("#4282DC"));
                     // Run code when checkbox is unchecked
-                    Toast.makeText(getContext(), "Updates disabled", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "LaTeX disabled", Toast.LENGTH_SHORT).show();
                 }
             }});
 

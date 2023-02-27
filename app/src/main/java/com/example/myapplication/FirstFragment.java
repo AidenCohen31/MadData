@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import static java.lang.Math.random;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -16,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -82,7 +83,7 @@ public class FirstFragment extends Fragment {
                 fp.addView(fcv);
                 ThirdFragment tf = new ThirdFragment();
                 Bundle bundle = new Bundle();
-                bundle.putString("name" , name);
+                bundle.putString("name" , name + ", " + Math.random());
                 bundle.putString("data" , data.substring(2,data.length() - 1));
                 tf.setArguments(bundle);
                 fragmentTransaction.add(fp.getChildAt(i).getId(), tf, "fragment" + i);
